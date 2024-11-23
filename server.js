@@ -144,6 +144,10 @@ app.get('/expenses', (req, res) => {
 });
 
 // Server
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+// app.listen(3000, () => {
+//   console.log('Server running on port 3000');
+// });
+const port = process.env.PORT || 3000; // Default to 3000 if no PORT is provided
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

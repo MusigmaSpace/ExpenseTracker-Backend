@@ -9,7 +9,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://sujithsojan:PZmfue7wQkXpWIei@c1.vmhpp.mongodb.net/expensetracker?retryWrites=true&w=majority&appName=C1', {
+
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -97,10 +98,16 @@ app.post('/auth/login', (req, res) => {
           return res.status(401).json({ message: 'Incorrect password' });
         }
 
-        // Generate a JWT token
+        // // Generate a JWT token
+        // const token = jwt.sign(
+        //   { userId: user._id, email: user.email },
+        //   'your_jwt_secret_key', // Replace with a secure secret key
+        //   { expiresIn: '1h' }
+        // );
+
         const token = jwt.sign(
           { userId: user._id, email: user.email },
-          'your_jwt_secret_key', // Replace with a secure secret key
+          process.env.JWT_SECRET, // Secure secret key from environment variables
           { expiresIn: '1h' }
         );
 

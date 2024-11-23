@@ -1,46 +1,68 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# compiled output
-/dist
-/tmp
-/out-tsc
-# Only exists if Bazel was run
-/bazel-out
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# dependencies
-/node_modules
+# Dependency directories
+node_modules/
+jspm_packages/
 
-# profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+# Build output
+dist/
+build/
+.tmp/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Vercel & Deployment files
+.vercel/
+.now/
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+# Optional npm cache directory
+.npm/
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# Optional Yarn cache directory
+.yarn/
 
-# System Files
+# dotenv environment variable files
+.env
+.env.local
+.env.*.local
+
+# Testing output
+coverage/
+.nyc_output/
+
+# Debug files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# OS-specific files
 .DS_Store
 Thumbs.db
+
+# Git-specific files
+.git/
+*.orig
+
+# Temporary files
+*.cache
+*.tmp
+*.bak
+~$*
+
+# Editor-specific files
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Ignore Angular cache (if applicable)
+.angular/

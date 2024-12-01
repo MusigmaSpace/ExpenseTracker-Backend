@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const dotenv = require('dotenv');
 const app = express();
+
+dotenv.config();
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -107,7 +110,7 @@ app.post('/auth/login', (req, res) => {
 
         const token = jwt.sign(
           { userId: user._id, email: user.email },
-          process.env.JWT_SECRET, // Secure secret key from environment variables
+          'jwt_token', 
           { expiresIn: '1h' }
         );
 
@@ -154,7 +157,7 @@ app.get('/expenses', (req, res) => {
 // app.listen(3000, () => {
 //   console.log('Server running on port 3000');
 // });
-const port = process.env.PORT || 3000; // Default to 3000 if no PORT is provided
+const port = process.env.PORT; 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
